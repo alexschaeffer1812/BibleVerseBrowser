@@ -13,7 +13,7 @@ namespace BibleVerseBrowser.Services
         {
 
         }
-
+        // Tables in database
         public DbSet<BibleVerse> BibleVerses { get; set; }
         public DbSet<Book> Books { get; set; }
 

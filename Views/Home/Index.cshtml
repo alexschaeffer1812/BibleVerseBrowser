@@ -13,25 +13,13 @@
                 </select>
             </div>
             <div class="col-auto">
-                <select class="custom-select">
-                    <option selected="">Book</option>
-                    <option value="1">Genisis</option>
-                    <option value="2">Exodus</option>
-                </select>
+                <select class="custom-select" id="Book" name="Book" asp-items="@(new SelectList(ViewBag.BookArray, "Id", "BookName"))"></select>
             </div>
             <div class="col-auto">
-                <select class="custom-select">
-                    <option selected="">Chapter</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                </select>
+                <select class="custom-select" id="ChapterNumber" name="ChaperNumber" asp-items="@(new SelectList(string.Empty, "Id", "ChapterNumber"))"></select>
             </div>
             <div class="col-auto">
-                <select class="custom-select">
-                    <option selected="">Verse</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                </select>
+                <select class="custom-select" id="VerseNumber" name="VerseNumber" asp-items="@(new SelectList(string.Empty, "Id", "VerseNumber"))"></select>
             </div>
             <div class="col-auto">
                 <button type="submit" class="btn btn-primary">Search</button>

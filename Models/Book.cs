@@ -13,5 +13,7 @@ namespace BibleVerseBrowser.Models
         public string BookName { get; set; }
         public string Testament { get; set; }
         public int GenreId { get; set; }
+        public int Chapters { get; set; }
+        public int Verses { get; set; }
     }
 }

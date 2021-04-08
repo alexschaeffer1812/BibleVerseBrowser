@@ -27,6 +27,7 @@ namespace BibleVerseBrowser
         {
             // Implementing Dependency Injection
             services.AddTransient<IBibleVerseRepository, BibleVerseRepository>();
+            services.AddTransient<IBookRepository, BookRepository>();
             services.AddControllersWithViews();
 
             //Fetching Connection string from APPSETTINGS.JSON  
