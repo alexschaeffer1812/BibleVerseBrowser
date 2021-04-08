@@ -1,4 +1,5 @@
 ﻿using BibleVerseBrowser.Models;
+using BibleVerseBrowser.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -11,15 +12,19 @@ namespace BibleVerseBrowser.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        public IBibleVerseRepository repository { get; set; }
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IBibleVerseRepository dataService)
         {
-            _logger = logger;
+            repository = dataService;
         }
 
         public IActionResult Index()
         {
+            var bibleVerse = repository.SearchBibleVerse(1, 1, 4);
+
+
+
             return View();
         }
 

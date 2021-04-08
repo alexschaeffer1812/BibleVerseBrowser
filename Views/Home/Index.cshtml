@@ -2,7 +2,45 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<form style="padding-top: 20px;">
+    <fieldset>
+        <div class="row gy-2 gx-3 align-items-center">
+            <div class="col-auto">
+                <select class="custom-select">
+                    <option selected="">Testament</option>
+                    <option value="1">New Testament</option>
+                    <option value="2">Old Testament</option>
+                </select>
+            </div>
+            <div class="col-auto">
+                <select class="custom-select">
+                    <option selected="">Book</option>
+                    <option value="1">Genisis</option>
+                    <option value="2">Exodus</option>
+                </select>
+            </div>
+            <div class="col-auto">
+                <select class="custom-select">
+                    <option selected="">Chapter</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                </select>
+            </div>
+            <div class="col-auto">
+                <select class="custom-select">
+                    <option selected="">Verse</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                </select>
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+
+        </div>
+        
+
+
+    </fieldset>
+</form>
+
