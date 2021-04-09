@@ -1,0 +1,14 @@
+﻿@model IEnumerable<BibleVerseBrowser.Models.BibleVerseViewModel>
+
+@if (Model != null)
+{
+    @foreach (var item in Model)
+    {
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">@item.Book @item.Chapter:@item.Verse</h4>
+                <p class="card-text">@item.Text</p>
+            </div>
+        </div>
+    }
+}

@@ -52,6 +52,13 @@ namespace BibleVerseBrowser.Controllers
         }
 
         [HttpGet]
+        public ActionResult EnumerateBooks(string testament)
+        {
+            List<Book> bookList = _bookRepository.GetAllBooks();
+            return Json(bookList.Where(b => b.Testament == testament));
+        }
+
+        [HttpGet]
         public ActionResult EnumerateChapters(string id)
         {
             int numberOfChapters = _bibleVerseRepository.GetNumberOfChapters(Int32.Parse(id));
@@ -70,6 +77,29 @@ namespace BibleVerseBrowser.Controllers
 
             return Json(values);
         }
+
+        public IActionResult SearchVerse(SearchDTO searchData)
+        {
+            
+            List<BibleVerse> bibleVerses = _bibleVerseRepository.SearchBibleVerse(searchData.Book, searchData.ChapterNumber, searchData.VerseNumber);
+            Book book = _bookRepository.GetBookById(searchData.Book);
+
+            List<BibleVerseViewModel> result = new List<BibleVerseViewModel>();
+
+            foreach (BibleVerse verse in bibleVerses)
+            {
+                result.Add(new BibleVerseViewModel { Book = _bookRepository.GetBookById(verse.Book).BookName, Chapter = verse.Chapter, Verse = verse.Verse, Text = verse.Text });
+            }
+
+            if (result.Count == 0)
+            {
+                ViewBag.Result = "No results found.";
+            }
+
+            return View("Index", result);
+        }
+
+
 
     }
 }

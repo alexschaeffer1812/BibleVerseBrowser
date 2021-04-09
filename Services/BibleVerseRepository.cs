@@ -27,11 +27,25 @@ namespace BibleVerseBrowser.Services
             return bibleVerse;
         }
 
-        public BibleVerse SearchBibleVerse(int book, int chapter, int verse)
+        public List<BibleVerse> SearchBibleVerse(int book, int chapter, int verse)
         {
-            var bibleVerse = _dbContext.BibleVerses.Where(v => v.Book == book).Where(v => v.Chapter == chapter).Where(v => v.Verse == verse).FirstOrDefault();
+            var query = _dbContext.BibleVerses.Where(v => v.Book == book);
 
-            return bibleVerse;
+            if (chapter != 0)
+            {
+                query = query.Where(v => v.Chapter == chapter);
+            }
+
+            if (verse != 0)
+            {
+                query = query.Where(v => v.Verse == verse);
+            }
+
+            var result = query.ToList();
+
+            // List<BibleVerse> bibleVerses = _dbContext.BibleVerses.Where(v => v.Book == book).Where(v => v.Chapter == chapter).Where(v => v.Verse == verse).ToList();
+
+            return result;
         }
 
         public int GetNumberOfChapters(int bookId)
