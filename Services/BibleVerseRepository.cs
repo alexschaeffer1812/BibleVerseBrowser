@@ -43,8 +43,6 @@ namespace BibleVerseBrowser.Services
 
             var result = query.ToList();
 
-            // List<BibleVerse> bibleVerses = _dbContext.BibleVerses.Where(v => v.Book == book).Where(v => v.Chapter == chapter).Where(v => v.Verse == verse).ToList();
-
             return result;
         }
 
